@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>x-data & x-text</title>
+</head>
+
+<body>
+
+    <!-- AlpineJs starts with x-data. We need to create alpine 'components' first. x-data defines any kind of HTML element as
+    an alpine component. it is a javascript object  -->
+    <div x-data="{message : 'hello this is my first time using aplineJs'}">
+        <p x-text="message"></p>
+    </div>
+
+
+    <!-- not only 'div', we can use any HTML element as an alpine component -->
+    <h1 x-data="{tagH1: 'this is our heading'}" x-text="tagH1"></h1>
+
+
+    <!-- We can add multiple variable, methods and even getters inside the x-data -->
+
+    <!-- <div x-data="{
+        name: 'Brian',
+        email: 'brian@email.com',
+        age: 18
+    }">
+        <ul>
+            <li x-text="name"></li>
+            <li x-text="email"></li>
+            <li x-text="age"></li>
+        </ul>
+    </div> -->
+
+    <div x-data="userDetails">
+        <ul>
+            <li x-text=" name"></li>
+            <li x-text="email"></li>
+            <li x-text="age"></li>
+        </ul>
+    </div>
+
+
+    <script>
+        function userDetails() {
+            return {
+                name: 'Brian',
+                email: 'brian@email.com',
+                age: 18,
+            }
+        }
+    </script>
+
+
+    <!-- alpineJs doesn't work outside component -->
+    <div x-data="{message: 'hello this is my first time using AlpineJs'}">
+    </div>
+    <p x-text="message"></p>
+
+
+    <!-- but it will work in any nested component inside of it -->
+    <div x-data="{message: 'AlpineJs is very cool'}">
+        <div x-data="{message1: 'AlpineJs is very easy to learn'}">
+            <div x-data="{message2: 'AlpineJs is very is awesome'}">
+                <p x-text="message"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- inside x-text we can do any type of javascript things like concatenation, calculation etc  -->
+    <div x-data="{message: 'AlpineJs is very cool'}">
+        <div x-data="{message1: 'AlpineJs is very easy to learn'}">
+            <div x-data="{message2: 'AlpineJs is very is awesome'}">
+                <p x-text="message + ' ' + message1"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- the x-data can be empty too, It will still be considered as an alpine component -->
+    <div x-data="{ }">
+        <p x-text="2 * 2"></p>
+    </div>
+
+</body>
+
+</html>
