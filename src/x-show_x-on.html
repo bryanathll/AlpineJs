@@ -11,6 +11,53 @@
 <body>
 
 
+    <!-- we can display or hide any element inside on alpine component using x-show -->
+    <div x-data="{}"> <!-- using empty component -->
+        <p x-show="true">Display this text if 'show' is true </p>
+    </div>
+
+    <div x-data="{show: false}"> <!-- using variable with boolean value -->
+        <p x-show="show">Display this text if 'show' is true </p>
+    </div>
+    <!-- =====end===== -->
+
+
+    <!-- let's say you want to display something if the condition is true and another one if the condition is false -->
+    <div x-data="{show: false}">
+        <p x-show="show">Display this text if 'show' is true </p>
+        <p x-show="!show">Display this text if 'show' is false </p>
+    </div>
+    <!-- =====end===== -->
+
+
+    <!-- x-on is used to listen to an event like 'click', 'keyup', 'keydown', 'submit' -->
+    <div x-data="{show: false}">
+        <p x-show="show">Display this text if 'show' button is clicked </p>
+        <button x-on:click="show = true ">Show</button>
+    </div>
+    <!-- =====end===== -->
+
+
+    <!-- We can toggle a state like this way -->
+    <div x-data="{show: false}">
+        <p x-show="show">Display this text if 'show' button is clicked </p>
+        <button x-on:click="show = !show ">toggle</button>
+    </div>
+    <!-- =====end===== -->
+
+
+    <!-- we can execute any custom javascript function based on that event too -->
+    <div x-data>
+        <button x-on:click="alert('this button has been clicked')">Alert</button>
+    </div>
+
+
+    <!-- 'Decrement' button will hide if number == 0, and will show again if the number > 0 -->
+    <div x-data="{number: 0}">
+        <button x-on:click="number++">Increment</button>
+        <button x-on:click="number--" x-show="number > 0">Decrement</button>
+        <p x-text="number"></p>
+    </div>
 
 </body>
 
