@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title> x-for </title>
+</head>
+
+<body>
+    <!-- 
+    we can use x-for to loop through on array of data and to ouput the values there are two rules to follow to use x-for: 
+    1. we need to use x-for on a <template> tag
+    2. <template> element will have only one root element. if we have multiple elements we can warp everything up using a <div> to make hat work  -->
+
+
+
+    <!-- let's loop through a array of numbers -->
+    <!-- <ul x-data="{numbers: [1,2,3,4]}">
+        <template x-for="number in numbers">
+            <li x-text="number"></li>
+        </template>
+    </ul> -->
+    <!-- ===end=== -->
+
+
+
+    <!-- we can also access the index value by using syntax like this:
+    ([item], [index] in [items]) -->
+    <div x-data="{
+        fruits: ['apple', 'banana', 'cery', 'grape']
+    }">
+
+        <template x-for="(fruit, index) in fruits">
+            <div>
+                <span x-text="index"></span>:
+                <span x-text="fruit"></span>
+            </div>
+        </template>
+
+    </div>
+    <!-- ===end=== -->
+
+
+    <!-- we can loop/iterate through a range of values using x-for -->
+
+    <div x-data="{numbers: 0}">
+        <template x-for="i in number i++">
+            <p x-text="i"></p>
+        </template>
+    </div>
+
+
+</body>
+
+</html>
