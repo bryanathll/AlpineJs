@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title> x-bind </title>
+
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .green {
+            color: green;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- x-bind is used ro bind/set any HTML attributes like class, id, placeholder, src, styles, etc. in this example let's
+    see how we can add multiple classes with x-bind -->
+    <div x-data="{myText: false}">
+        <!-- <p :class="myText">Lorem ipsum dolor sit amet.</p> -->
+        <p x-show="myText">Lorem ipsum dolor sit amet.</p>
+        <div @submit="myText = !myText">
+            click
+        </div>
+    </div>
+    <!-- ====end===== -->
+
+
+
+    <!-- we can add styles attributes also. By this way we can styles an element without using external css -->
+    <div x-data="{styles: {color: 'black', background: 'blue', padding: '4em'}}">
+        <div x-bind:style="styles">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, voluptates!
+        </div>
+    </div>
+    <!-- ====end===== -->
+
+
+
+    <!-- we can also using showcase an image using the src attributes, it will come in handy while using an API. we can get the url from API and display it like this -->
+    <div
+        x-data="{ image: 'https://images.unsplash.com/photo-1682695795557-17447f921f79?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8' }">
+        <img x-bind:src="image">
+    </div>
+    <!-- ====end===== -->
+
+
+    <!-- we can also bind classes based on conditions like ternary operations -->
+    <div x-data="{ isOpen: false}">
+        <p x-bind:class="isOpen? 'show' : 'hide'">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero ipsum laborum quo, provident laboriosam
+            quis ratione magni iusto ipsa deserunt?
+        </p>
+        <button x-on:click="isOpen = !isOpen">
+            show
+        </button>
+    </div>
+    <!-- ====end===== -->
+
+
+
+</body>
+
+</html>
