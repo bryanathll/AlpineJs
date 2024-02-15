@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> x-transition css </title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+       1. We got 6 directives
+       2. :enter = Applied during the entire entering phase. Transition properties should be added here.
+       3. :enter-start = Added before the animation starts, removed one frame after that. The initial state of animation should be added here.
+       4. :enter-end = Added one frame after the animation starts, removed when the animation finishes. The end state of animation should be added here.
+       5. :leave = Applied during the entire leaving phase. Transition properties should be added here.
+       6. :leave-start = Added before the animation starts, removed one frame after that. The initial state of animation should be added here.
+       7. :leave-end = Added one frame after the animation starts, removed when the animation finishes. The end state of animation should be added here.
+  -->
+
+    <div x-data="{open: false}">
+        <button x-ref="toogleFocus" @click="open = !open">toogle</button>
+        <!-- <div class="box" x-show="open" x-transition:leave.duration.1000ms.delay.5000ms=></div> -->
+        <!-- <div class="box" x-show="open" x-transition:enter.duration.1000ms.delay.5000ms.scale.10></div> -->
+        <div class="box" x-show="open" x-transition.scale.10.duration.5000ms=></div>
+    </div>
+
+
+</body>
+
+</html>
