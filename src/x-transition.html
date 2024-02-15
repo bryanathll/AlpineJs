@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title> x-transition </title>
+
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 1. alpine transition only work with x-show not with x-if
+    2. we can add a simple face and scale animation effect by adding x-transition with it
+    3. the default timing of animation is 500ms for both enter and leaVing process
+    4. we can customize it by using:
+        x-transition:enter.duration.300ms
+        x-transition:leave.duration.300ms
+    5. we can delay the transtition by using   
+        x-transition.delay.100ms
+    6. we can use the .scale modifier to change the scale values by adding .values
+        x-transition.scale.40 
+    -->
+    <!-- 
+    <div class="box" x-show="open" x-transition:enter
+                                   x-transisiton:leave
+                                   x-transisiton:enter.duration.100ms
+                                   x-transisiton:leave.duration.100ms
+                                   x-transisiton.delay.100ms
+                                   x-transisiton.scale
+                                   x-transisiton.scale.10
+                                   x-transisiton.scale.origin.top></div> -->
+
+
+    <div x-data="{open: false}">
+        <button x-ref="toogleFocus" @click="open = !open">toogle</button>
+        <!-- <div class="box" x-show="open" x-transition:leave.duration.1000ms.delay.5000ms=></div> -->
+        <!-- <div class="box" x-show="open" x-transition:enter.duration.1000ms.delay.5000ms.scale.10></div> -->
+        <div class="box" x-show="open" x-transition.scale.10.duration.5000ms=></div>
+    </div>
+
+</body>
+
+</html>
