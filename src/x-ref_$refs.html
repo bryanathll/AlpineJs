@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title> x-ref & $refs </title>
+</head>
+
+<body>
+
+    <!-- x-ref and $refs work combindly. we can use this combination to access html DOM elements directly. this is the alpine js version of getElementById or queryselector -->
+    <!-- while x-ref is used to terget or select the DOM element, $refs is used to retrive the elemetn marked with x-ref -->
+
+    <div x-data>
+        <p x-ref="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam reprehenderit at eligendi qui
+            totam porro distinctio assumenda suscipit quam sed.</p>
+        <button @click="$refs.text.remove()">
+            remove
+        </button>
+    </div>
+
+
+    <div x-data>
+        <button @click="$refs.name.focus()">
+            focus
+        </button>
+        <input type="text" x-ref="name">
+    </div>
+
+</body>
+
+</html>
