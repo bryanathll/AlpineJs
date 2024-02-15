@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title> x-if & x-show </title>
+</head>
+
+<body>
+
+    <!-- x-show -->
+    <div x-data="{show: false}">
+        <p x-show="show">
+            this sentence will show if button x-show is cliked
+        </p>
+        <button @click="show = !show">
+            x-show
+        </button>
+    </div>
+    <!-- ===end=== -->
+
+
+    <!-- x-if -->
+    <!-- x-if using 'template' tag to make it work  -->
+
+    <div x-data="{show: false}">
+        <button @click="show = !show">x-if</button>
+        <template x-if="show">
+
+            <p>
+                this sentence will show if button x-show is true
+            </p>
+
+        </template>
+
+        <template x-if="!show">
+            <p>
+                this sentence will show if button x-show is false
+            </p>
+        </template>
+    </div>
+</body>
+
+</html>
