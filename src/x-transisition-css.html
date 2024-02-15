@@ -4,12 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title> x-transition css </title>
     <style>
         .box {
             height: 200px;
             width: 200px;
             background-color: blueviolet;
+        }
+
+        .transition {
+            transition: all 1s ease-in-out;
+        }
+
+        .enter-start {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .enter-end {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .leave-end {
+            transform: translateY(-10px);
+            opacity: 0;
         }
     </style>
 </head>
@@ -27,10 +47,9 @@
   -->
 
     <div x-data="{open: false}">
-        <button x-ref="toogleFocus" @click="open = !open">toogle</button>
-        <!-- <div class="box" x-show="open" x-transition:leave.duration.1000ms.delay.5000ms=></div> -->
-        <!-- <div class="box" x-show="open" x-transition:enter.duration.1000ms.delay.5000ms.scale.10></div> -->
-        <div class="box" x-show="open" x-transition.scale.10.duration.5000ms=></div>
+        <button @click="open = !open">toogle</button>
+        <div class="box" x-show="open" x-transition:enter="transition" x-transition:leave="transition"
+            x-transition:enter-start="enter-start" x-transition:leave-end="leave-end"></div>
     </div>
 
 
