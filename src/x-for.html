@@ -44,13 +44,31 @@
 
 
     <!-- we can loop/iterate through a range of values using x-for -->
-
-    <div x-data="{numbers: 0}">
-        <template x-for="i in number i++">
-            <p x-text="i"></p>
+    <div x-data="{number: 10}">
+        <template x-for="i in number">
+            <p x-text="i += 1"></p>
         </template>
     </div>
+    <!-- ===end=== -->
 
+
+    <!-- let's loop through an associative array using x-for -->
+    <div x-data="{
+        people: [
+        {id:1 , name: 'budi', profession:'kuli'},
+        {id:2 , name: 'joko', profession:'caleg'},
+        {id:3 , name: 'agus', profession:'teacher'}
+        ]
+    }" :key="person.id">
+        <template x-for="person in people ">
+            <div>
+                <span x-text="person.id"></span>:
+                <span x-text="person.name"></span>-
+                <span x-text="person.profession"></span>
+            </div>
+        </template>
+
+    </div>
 
 </body>
 
