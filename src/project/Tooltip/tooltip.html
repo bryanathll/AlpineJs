@@ -5,10 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title> Alpinejs Tooltip </title>
 </head>
 
 <body>
+
+    <div class=" tooltip" x-data="{tooltip: false}">
+        <button @mouseover="tooltip = true" @mouseleave="tooltip = false">Hover Me!</button>
+        <div x-show="tooltip" class="tooltip-text">
+            This is a hover tooltip
+        </div>
+    </div>
+
+    <div class=" tooltip" x-data="{tooltip: false}">
+        <button @click="tooltip = !tooltip">click Me!</button>
+        <div x-show="tooltip" class="tooltip-text">
+            This is a click tooltip
+        </div>
+    </div>
 
 </body>
 
