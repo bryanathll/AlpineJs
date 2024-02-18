@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #bf8bff;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    padding: 22px;
+    top: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+button svg {
+    width: 28px;
+}
